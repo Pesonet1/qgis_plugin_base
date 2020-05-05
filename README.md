@@ -75,7 +75,11 @@ This contains all relations between schema tables.
 
 ### Dev environment database
 
-Run and build docker container containing PostgreSQL + PostGIS. Used image ([kartoza/postgis](https://github.com/kartoza/docker-postgis)). Link contains more configuration options.
+1. Install (docker)[https://docs.docker.com/docker-for-windows/install/].
+2. Run `docker-compose.yaml` file inside dev-folder by running `docker-compose -f docker-compose.yaml up --build`
+3. PostgreSQL (with PostGIS) is running on port 5432 and can be accessed from localhost.
+
+Docker container is based on image ([kartoza/postgis](https://github.com/kartoza/docker-postgis)). Link contains more configuration options.
 
 Inside docker-compose.yaml you can specify initial sql-scripts that are run on container start.
 
