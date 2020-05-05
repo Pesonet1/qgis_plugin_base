@@ -63,7 +63,7 @@ from PyQt5.QtSql import QSqlDatabase
 print(QSqlDatabase.isDriverAvailable('QPSQL))
 ```
 
-If it is not install by running following command
+If it is not installed. Install it by running following command
 
 `$ sudo apt install libqt5sql5-psql`
 
@@ -81,16 +81,16 @@ This contains all relations between schema tables.
 
 Docker container is based on image ([kartoza/postgis](https://github.com/kartoza/docker-postgis)). Link contains more configuration options.
 
-Inside docker-compose.yaml you can specify initial sql-scripts that are run on container start. Currently it runs `setup-db.sql` file that creates dummy table with one of data.
+Inside docker-compose.yaml you can specify initial sql-scripts that are run on container start. Currently it runs `setup-db.sql` file that creates dummy table with one row of data.
 
 ```
-Build containers
+Build container
 $ docker-compose -f docker-compose.yaml build
 
-Start containers
+Start container
 $ docker-compose -f docker-compose.yaml up
 
-Start and build containers
+Start and build container
 $ docker-compose -f docker-compose.yaml up --build
 ```
 
@@ -101,7 +101,7 @@ Connect to database from container cli
 $ psql -h localhost -U postgres
 ```
 
-Some useful commands
+Some useful PostgreSQL commands:
 
 ```
 Close connection
