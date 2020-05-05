@@ -17,7 +17,7 @@ However all of these dependencies can be installed manually to existing python i
 
 ## Qt Designer
 
-This is a convenient tool for designing plugin ui. It modifies .ui files.
+This is a convenient tool for designing plugin ui. It modifies .ui files. From QDialog class the designer elements can be accessed with the set name e.g. self.dlg.test_button. These elements can be connected for listening UI elements.
 
 ## Plugin Reloader
 
@@ -25,7 +25,7 @@ Plugin reloader enables reloading (compiling) project code after code changes. I
 
 ## Workspace file
 
-Depending on project it is usually needed to save template workspace for project. It can be included with the project files with type .qgs. Other possiblity is to use zipped version .qgz, but it makes following workspace file changes difficult.
+Depending on project it is usually needed to save template workspace for project. It can be included with the project files with type .qgs. Other possiblity is to use zipped version .qgz, but it makes following workspace file changes in version control difficult.
 
 ## User profiles
 
@@ -58,7 +58,7 @@ Proided utility class DbConnection contains example methods for creating db conn
 - PGHOST -> db-host
 - PGSSLMODE -> disable
 
-If you are developming on Linux-environment check that QT `QPSQL`-driver is installed by running following .py script:
+If you are developming on Linux-environment check that Qt `QPSQL`-driver is installed by running following .py script:
 
 ```
 from PyQt5.QtSql import QSqlDatabase
