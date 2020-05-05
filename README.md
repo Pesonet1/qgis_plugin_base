@@ -2,6 +2,8 @@
 
 This QGIS plugin base is created with Plugin Builder plugin.
 
+[Good source for PyQGIS examples](https://github.com/webgeodatavore/pyqgis-samples)
+
 ## Installing
 
 Download OSGeo4W network installer and choose Express Desktop install. It installs all necessary tools (GDAL, PyQt5, QtDesigner, Python etc.) for QGIS plugin development with QGIS itself. After this you can use OSGeo4W shell to access these. Other option is to use Python CLI opened from `C:\OSGeo4W64\bin\python-qgis.bat` script. Python pip packages can be installed using e.g. `python-qgis.bat -m pip install`.
