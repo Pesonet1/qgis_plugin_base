@@ -1,5 +1,5 @@
 
-# Setting scripts for running QGIS
+# Deployment scripts & instructions for QGIS Plugins
 
 ### 1. Create QGIS profile for each user
 
