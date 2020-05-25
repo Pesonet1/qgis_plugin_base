@@ -28,7 +28,7 @@ Plugin reloader enables reloading (compiling) project code after code changes. I
 
 ### Debugging
 
-TODO add more IDE debugging instructions
+TODO add more IDE debugging [instructions](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/plugins/ide_debugging.html)
 
 Modify `__init__.py` to set more debugging options
 
