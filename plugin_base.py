@@ -11,7 +11,7 @@ from .resources import *
 from .plugin.Plugin import Plugin
 
 class QgisPluginBase:
-    """QGIS Plugin Implementation."""
+    """ QGIS Plugin Implementation """
 
     plugin = None
 
@@ -38,16 +38,16 @@ class QgisPluginBase:
         self.first_start = None
 
     def add_action(
-        self,
-        icon_path,
-        text,
-        callback,
-        enabled_flag=True,
-        add_to_menu=True,
-        add_to_toolbar=True,
-        status_tip=None,
-        whats_this=None,
-        parent=None):
+            self,
+            icon_path,
+            text,
+            callback,
+            enabled_flag=True,
+            add_to_menu=True,
+            add_to_toolbar=True,
+            status_tip=None,
+            whats_this=None,
+            parent=None):
         """Add a toolbar icon to the toolbar.
 
         :param icon_path: Path to the icon for this action. Can be a resource
@@ -140,7 +140,7 @@ class QgisPluginBase:
             self.plugin.dlg.activateWindow()
 
         # Create the dialog with elements (after translation) and keep reference
-        if self.first_start == True:
+        if self.first_start:
             self.first_start = False
 
         # show the dialog

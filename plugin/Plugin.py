@@ -3,7 +3,7 @@
 from .PluginDialog import PluginDialog
 from .WindowDialog import WindowDialog
 
-from ..utilities.DbConnection import DbConnection
+# from ..utilities.DbConnection import DbConnection
 
 class Plugin:
     """ Plugin base constructor """
@@ -24,9 +24,9 @@ class Plugin:
     def __openWindowDialog(self):
         """ Opens window dialog """
 
-        self.windowDialog = WindowDialog(parent=None)
+        windowDialog = WindowDialog(parent=None)
 
-        if self.windowDialog.exec_():
-          print('ok pressed')
+        if windowDialog.exec_():
+            print('ok pressed')
         else:
-          print('cancel pressed')
+            print('cancel pressed')
