@@ -25,6 +25,38 @@ This is a convenient tool for designing plugin ui. It modifies .ui files. From Q
 
 Plugin reloader enables reloading (compiling) project code after code changes. It can be downloaded for QGIS plugins. Hot key for using it is `CTRL + F5`.
 
+### Linting (vscode)
+
+To generate empty .pylintrc configuration file run:
+
+`pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc`
+
+Project has pylint configuratition file `.pytlintrc`.
+
+Install pylint -> `pip install pylint`
+
+Make sure that you install pylint to the same interpreter that is configured for e.g. vscode
+
+In vscode add following `settings.json` lines:
+
+```
+CTRL + SHIFT + P -> Preferences: Open Settings (JSON)
+
+"python.linting.enabled": true,
+"python.linting.lintOnSave": true,
+"python.linting.pylintEnabled": true,
+```
+
+Just to be sure, check the following settings:
+
+```
+CTRL + SHIFT + P -> Python: Select Linter -> pylint
+CTRL + SHIFT + P -> Python: Enable Linting -> on
+
+Optionally run linting
+
+CTRL + SHIFT + P -> Python: Run Linting
+```
 
 ### Debugging
 
