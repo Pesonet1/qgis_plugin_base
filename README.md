@@ -68,19 +68,17 @@ More IDE debugging options [here](https://docs.qgis.org/testing/en/docs/pyqgis_d
 
 NOTE: Heavily based on this [gist](https://gist.github.com/veuncent/c4589af14af42941ac0b0310e8240d6c)
 
-```
 1. Select QGIS python as folder interpreter:
-
+```
 CTRL + SHIFT + P -> Python: Select intepreter -> C:\OSGeo4W64\apps\Python37\python.exe
-
+```
 2. Install ptvsd
-
-$ pip install ptvsd==4.3.2
-
-3. Set QGIS_PLUGIN_USE_DEBUGGER environment variable as ptvsd
-
+```
+pip install ptvsd==4.3.2
+```
+3. Set `QGIS_PLUGIN_USE_DEBUGGER` environment variable as `ptvsd`
 4. Add debug configuration to launch.json-file
-
+```
 {
   "name": "Python: Remote Attach",
   "type": "python",
@@ -94,9 +92,8 @@ $ pip install ptvsd==4.3.2
     }
   ]
 }
-
-5. Run this debug configuration from vscode and add desired breakpoints
 ```
+5. Run this debug configuration from vscode and add desired breakpoints
 
 ### Dev environment database
 
