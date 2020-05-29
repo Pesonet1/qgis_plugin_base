@@ -2,11 +2,14 @@
 
 import os.path
 
+from PyQt5.Qt import PYQT_VERSION_STR
+from PyQt5.QtCore import QTranslator, QCoreApplication, qVersion, QSettings
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QAction
 
 # Initialize Qt resources from file resources.py
 from .resources import *
+from .utilities import translation
 
 from .plugin.Plugin import Plugin
 
@@ -23,15 +26,34 @@ class QgisPluginBase:
             application at run time.
         :type iface: QgsInterface
         """
+
+        print("Plugin is using PyQt version", PYQT_VERSION_STR)
+
         # Save reference to the QGIS interface
         self.iface = iface
 
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
 
+        # initialize locale
+        locale = QSettings().value('locale/userLocale')[0:2]
+        print('Plugin is using locale', locale)
+
+        locale_path = os.path.join(
+            self.plugin_dir,
+            'i18n',
+            '{}.qm'.format(locale))
+
+        if os.path.exists(locale_path):
+            self.translator = QTranslator()
+            self.translator.load(locale_path)
+
+            if qVersion() > '4.3.3':
+                QCoreApplication.installTranslator(self.translator)
+
         # Declare instance attributes
         self.actions = []
-        self.menu = "QGIS Plugin Base"
+        self.menu = translation.tr("menuTitle")
 
         # Check if plugin was started the first time in current QGIS session
         # Must be set in initGui() to survive plugin reloads
@@ -127,7 +149,7 @@ class QgisPluginBase:
         """Removes the plugin menu item and icon from QGIS GUI."""
 
         for action in self.actions:
-            self.iface.removePluginMenu("QGIS Plugin Base", action)
+            self.iface.removePluginMenu(translation.tr("menuTitle"), action)
             self.iface.removeToolBarIcon(action)
 
 

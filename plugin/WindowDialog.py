@@ -1,12 +1,14 @@
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout
 
+from ..utilities import translation
+
 class WindowDialog(QDialog):
     """ Basic WindowDialog """
 
     def __init__(self, parent=None):
         super(WindowDialog, self).__init__(parent)
 
-        self.setWindowTitle('Pluginista avattu ikkuna')
+        self.setWindowTitle(translation.tr('windowDialogTitle'))
         self.__constructWidget()
 
     def __constructWidget(self):

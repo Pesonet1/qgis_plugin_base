@@ -64,6 +64,20 @@ TODO add more IDE debugging [instructions](https://docs.qgis.org/testing/en/docs
 
 Modify `__init__.py` to set more debugging options
 
+### Translations
+
+This project contains example for creating translations in Finnish & English. 
+
+Inside code to utilities folder tr-method to apply translations for desired texts. .ui-files are automatically detected.
+
+Run following command to create Finnish and English translations for these keys. Everytime you create new translations key run this command, so they are created into .ts-files.
+
+`./i18n/update-translations.sh`
+
+Compile translations into .qm-files in order to QGIS to read them on plugin start. The correct language is automatically detected, since it is read from QSettings configuration class. Everytime you make changes to the translations you need to run this.
+
+`./i18n/compile-translations.sh`
+
 #### Visual Studio Code ([ptvsd](https://github.com/microsoft/ptvsd))
 
 NOTE: Heavily based on this [gist](https://gist.github.com/veuncent/c4589af14af42941ac0b0310e8240d6c)
