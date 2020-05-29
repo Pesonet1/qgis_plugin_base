@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "Processing: fi.ts"
+echo "Compiling fi.ts into fi.qm"
 ./lrelease.exe fi.ts -qm ./fi.qm
 
 
-echo "Processing: en.ts"
+echo "Compiling en.ts into en.qm"
 ./lrelease.exe en.ts -qm ./en.qm
