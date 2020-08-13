@@ -1,14 +1,22 @@
 # QGIS Plugin base
 
-This QGIS plugin base is created with Plugin Builder plugin.
+This QGIS plugin base is heavily based on a plugin that can be created with Plugin Builder plugin.
 
 [Good source for PyQGIS examples](https://github.com/webgeodatavore/pyqgis-samples)
 
-## Installation
+## Setup
 
-Download OSGeo4W network installer and choose Express Desktop install. It installs all necessary tools (GDAL, PyQt5, QtDesigner, Python etc.) for QGIS plugin development with QGIS itself. After this you can use OSGeo4W shell to access these. Other option is to use Python CLI opened from `C:\OSGeo4W64\bin\python-qgis.bat` script or set `C:\OSGeo4W64\apps\Python37` and `C:\OSGeo4W64\apps\Python37\Scripts` as path variables. Python pip packages can be installed using e.g. `python-qgis.bat -m pip install` or `C:\OSGeo4W64\apps\Python37\python.exe -m pip install`. The last command assumes that you have installed pip for this Python intepreter.
+### Environment installation & setup
 
-Another way is to install all of the needed dependencies manually to existing python installation.
+NOTE: There exists alternative ways to do this. However, following ways have been tested.
+
+Download OSGeo4W network installer and choose Express Desktop install. It installs all necessary tools (GDAL, PyQt5, QtDesigner, Python etc.) for QGIS plugin development with QGIS itself. After this you can use OSGeo4W shell to access these tools. Other option is to use Python CLI opened from `C:\OSGeo4W64\bin\python-qgis.bat` script or set `C:\OSGeo4W64\apps\Python37` and `C:\OSGeo4W64\apps\Python37\Scripts` as path variables. Another way is to install all of the needed dependencies manually to existing python installation.
+
+Python pip packages can be installed using e.g. `python-qgis.bat -m pip install` or `C:\OSGeo4W64\apps\Python37\python.exe -m pip install`. The last command assumes that you have installed pip for this Python intepreter.
+
+On your desired IDE set you Python interpreter according to the preferred python installation.
+
+### Plugin installation
 
 1. Git clone this repository into `C:\Users\%USERPROFILE%\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins` folder or `C:\OSGeo4W64\apps\qgis\python\plugins`
 2. Go to this folder and compile plugin resources with `pyrcc5 -o resources.py resources.qrc`
@@ -60,10 +68,6 @@ CTRL + SHIFT + P -> Python: Enable Linting -> on
 CTRL + SHIFT + P -> Python: Run Linting
 ```
 
-### Debugging
-
-More IDE debugging options [here](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/plugins/ide_debugging.html). Modify `__init__.py` to set more debugging options
-
 ### Translations
 
 This project contains example for creating translations in Finnish & English. 
@@ -77,6 +81,10 @@ Run following command to create Finnish and English translations for these keys.
 Compile translations into .qm-files in order to QGIS to read them on plugin start. The correct language is automatically detected, since it is read from QSettings configuration class. Everytime you make changes to the translations you need to run this.
 
 `./i18n/compile-translations.sh`
+
+### Debugging
+
+More IDE debugging options [here](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/plugins/ide_debugging.html). Modify `__init__.py` to set more debugging options
 
 #### Visual Studio Code ([ptvsd](https://github.com/microsoft/ptvsd))
 
@@ -164,7 +172,7 @@ $ \dv
 
 ## Workspace file
 
-Depending on project it is usually needed to save template workspace for project. It can be included with the project files with type .qgs. Other possiblity is to use zipped version .qgz, but it makes following workspace file changes in version control difficult.
+Depending on project it is usually needed to save template workspace for project. This can be included with the project files with type .qgs. Other possiblity is to use zipped version .qgz, but it makes following workspace file changes in version control difficult.
 
 ## User profiles
 
@@ -199,7 +207,7 @@ Proided utility class DbConnection contains example methods for creating db conn
 - PGHOST -> db-host
 - PGSSLMODE -> disable
 
-If you are developming on Linux-environment check that Qt `QPSQL`-driver is installed by running following .py script:
+If you are developing on Linux-environment check that Qt `QPSQL`-driver is installed by running following .py script:
 
 ```
 from PyQt5.QtSql import QSqlDatabase
@@ -212,6 +220,12 @@ If it is not installed. Install it by running following command
 
 ### Database relations
 
+Database relations can be set here.
+
 `Project` -> `Properties...` -> `Relations`
 
 This contains all relations between schema tables.
+
+When setting relations between tables it enables displaying related tables inside attribute tables.
+
+NOTE: QGIS might have some difficulties with creating many-to-many relations

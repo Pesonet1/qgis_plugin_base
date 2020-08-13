@@ -1,7 +1,6 @@
-
 # Deployment scripts & instructions for QGIS Plugins
 
-### 1. Create QGIS profile for each user
+## 1. Create QGIS profile for each user
 
 In QGIS:
 
@@ -9,7 +8,7 @@ In QGIS:
 
 Give profile name that is used within the scripts
 
-### 2. Set up auth configration for this profile
+## 2. Set up auth configration for this profile
 
 In QGIS:
 
@@ -27,15 +26,15 @@ Add new auth configuration with the following information:
 
 AFTER THIS CLOSE QGIS
 
-### 3. Attach start.bat with copied QGIS shortcut
+## 3. Attach start.bat with copied QGIS shortcut
 
 Make it convenient for the users to open QGIS with correct project template and plugin.
 
-### 4. Run update_version.bat
+## 4. Run update_version.bat
 
 This updates plugin version from path that is accessible for every user.
 
-### 5. Open QGIS from the create QGIS shorcut
+## 5. Open QGIS from the create QGIS shorcut
 
 Set project plugin from `Plugins` -> `Manage and install plugins`
 
@@ -43,7 +42,7 @@ Select the projects plugin to active it for the user profile.
 
 # Using
 
-After installation plugin should be available for use. Any time user needs to update plugin new version needs to be copied
+After installation plugin should be available for use. Anytime user needs to update plugin new version needs to be copied
 to the target environment to the specified version path (that the scripts use). These scripts don't provide any automated solution for this.
 However CI tools (Jenkins, Gitlab CI etc.) can be used to automatically load source code into new folder and update scripts files.
 

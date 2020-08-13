@@ -11,7 +11,10 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_MULTIPLE_EXTENSIONS: postgis
     volumes:
-      # - ./postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
       - ./sql/setup-db.sql:/docker-entrypoint-initdb.d/setup-db.sql
     ports:
       - 5432:5432
+
+volumes:
+  postgres_data:
