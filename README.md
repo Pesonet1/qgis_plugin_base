@@ -47,7 +47,7 @@ Main tools/applications for development are your IDE (Qt Creator, VsCode etc.) a
 
 ### Qt Designer
 
-This is a convenient tool for designing plugin ui. It modifies .ui files. From QDialog class the designer elements can be accessed with the set name e.g. self.dlg.test_button. These elements can be connected for listening UI elements.
+This is a convenient tool for designing plugin ui. It straightly modifies opened .ui files. QDialog class provides access to named elements with the set name e.g. self.dlg.test_button. Additionally these elements can be connected for listening UI events.
 
 ### Plugin Reloader
 
@@ -55,13 +55,13 @@ Plugin reloader (QGIS Plugin) enables reloading (compiling) project code after c
 
 ### Linting (vscode)
 
+Project has pylint configuration file `.pylintrc`. This file contains rules that are used to detect informalities inside python code.
+
 To generate empty .pylintrc configuration file run (this project already includes this):
 
 `pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc`
 
-Project has pylint configuration file `.pylintrc`.
-
-In order to use pylint, install it for the Python interpreter that is set to be used in the project folder.
+In order to use pylint, install it for the used Python interpreter.
 
 1. Check Python interpreter `CTRL + SHIFT + P -> Python: Select Interpreter`
 2. Install pylint to selected interpreter -> `pip install pylint`
@@ -92,7 +92,7 @@ CTRL + SHIFT + P -> Python: Run Linting
 
 This project contains example for creating translations in Finnish & English. 
 
-Inside code to utilities folder tr-method to apply translations for desired texts. .ui-files are automatically detected.
+Utilities folder contains translations.py file that has tr-method. This method can be used to map desired translation key to desired texts. .ui-files are automatically detected and generated from these keys.
 
 Run following command to create Finnish and English translations for these keys. Everytime you create new translations key run this command, so they are created into .ts-files.
 
@@ -158,7 +158,7 @@ Start and build container
 $ docker-compose -f docker-compose.yaml up --build
 ```
 
-Optionally there is a possibility to store the PostgreSQL data directory inside host machine. If the container PostgreSQL data volume is attached data will persist even if the container is stopped.
+Optionally there is a possibility to store the PostgreSQL data directory inside host machine. If the container PostgreSQL data volume is attached data will persist even if the container is removed.
 
 ```
 Connect to database from container cli
@@ -192,7 +192,7 @@ $ \dv
 
 ## Workspace file
 
-Depending on project it is usually needed to save template workspace for project. This can be included with the project files with type .qgs. Other possiblity is to use zipped version .qgz, but it makes following workspace file changes in version control difficult.
+Depending on project it is usually desired to save template workspace for project. This can be included with the project files with type .qgs. Other possiblity is to use zipped version .qgz, but it makes following workspace file changes in version control difficult.
 
 ## User profiles
 
