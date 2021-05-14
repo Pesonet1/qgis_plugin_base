@@ -3,6 +3,9 @@
 This QGIS plugin base is heavily based on a plugin that can be created with Plugin Builder plugin.
 
 [Good source for PyQGIS examples](https://github.com/webgeodatavore/pyqgis-samples)
+[QGIS Python API Documentation](https://www.qgis.org/pyqgis/master/)
+[PyQt5 Reference Guide](https://www.riverbankcomputing.com/static/Docs/PyQt5/)
+[PyQt5 API Documentation](https://doc.bccnsoft.com/docs/PyQt5/)
 
 ## Setup
 
@@ -12,18 +15,35 @@ NOTE: There exists alternative ways to do this. However, following ways have bee
 
 Download OSGeo4W network installer and choose Express Desktop install. It installs all necessary tools (GDAL, PyQt5, QtDesigner, Python etc.) for QGIS plugin development with QGIS itself. After this you can use OSGeo4W shell to access these tools. Other option is to use Python CLI opened from `C:\OSGeo4W64\bin\python-qgis.bat` script or set `C:\OSGeo4W64\apps\Python37` and `C:\OSGeo4W64\apps\Python37\Scripts` as path variables. Another way is to install all of the needed dependencies manually to existing python installation.
 
-Python pip packages can be installed using e.g. `python-qgis.bat -m pip install` or `C:\OSGeo4W64\apps\Python37\python.exe -m pip install`. The last command assumes that you have installed pip for this Python intepreter.
+On your desired IDE set you Python interpreter according to the preferred python installation (development chapter contains insturctions how to se it inside VsCode).
 
-On your desired IDE set you Python interpreter according to the preferred python installation.
+#### Windows
+
+For Windows environment run `compile.bat` to compile QT resources file into .py file to be used by Python plugin code. Additionally, indicate path to the QGIS install from current plugin path by running `o4w_env.bat`, `qt5_env.bat` & `py3_env.bat` scripts.
+
+#### Linux
+
+For Linux environment install python-qt5 package. Depending on your distribution change the following script `sudo apt-get install python-qt5`.
+
+#### Max
+
+For Mac environment install PyQt package with following command `brew install pyqt`.
+
+#### External Python dependencies
+
+Python pip packages can be installed using e.g. `python-qgis.bat -m pip install` or `C:\OSGeo4W64\apps\Python37\python.exe -m pip install`. The last command assumes that you have installed pip for this Python intepreter.
 
 ### Plugin installation
 
-1. Git clone this repository into `C:\Users\%USERPROFILE%\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins` folder or `C:\OSGeo4W64\apps\qgis\python\plugins`
-2. Go to this folder and compile plugin resources with `pyrcc5 -o resources.py resources.qrc`
-3. Restart QGIS in order to load profiles again (with plugin)
-4. Add plugin `Plugins` -> `Manage and Install Plugins...` -> `Installed` and check the copied plugin
+1. Git clone this repository into `C:\Users\%USERPROFILE%\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins` folder or `C:\OSGeo4W64\apps\qgis\python\plugins` (if there is a need for global place for plugins).
+2. Optionally create symbolic link from `C:\OSGeo4W64\apps\qgis\python\plugins` path to user profile path (can be useful in production setting) by running following command prompt  command `mklink /D C:\Users\%USERPROFILE%\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\<plugin-folder-name> C:\OSGeo4W64\apps\qgis\python\plugins\<plugin-folder-name>`
+3. Go to this folder and compile plugin resources with `pyrcc5 -o resources.py resources.qrc` (skip this step if compile.bat has been run already)
+4. Restart QGIS in order to load profiles again (with plugin)
+5. Add plugin `Plugins` -> `Manage and Install Plugins...` -> `Installed` and check the copied plugin
 
 ## Development
+
+Main tools/applications for development are your IDE (Qt Creator, VsCode etc.) and Qt Designer. Additionally, Qt Linguist application exist for managing plugin translations.
 
 ### Qt Designer
 
@@ -31,7 +51,7 @@ This is a convenient tool for designing plugin ui. It modifies .ui files. From Q
 
 ### Plugin Reloader
 
-Plugin reloader enables reloading (compiling) project code after code changes. It can be downloaded for QGIS plugins. Hot key for using it is `CTRL + F5`.
+Plugin reloader (QGIS Plugin) enables reloading (compiling) project code after code changes. It can be downloaded for QGIS plugins. Hot key for using it is `CTRL + F5`.
 
 ### Linting (vscode)
 
